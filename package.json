@@ -1,0 +1,14 @@
+{
+  "name": "extrator_biblia",
+  "version": "1.0.0",
+  "description": "extrair a biblia grego e hebraico, sua referencia cruzada e possiveis traducoes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "paulo",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  }
+}
