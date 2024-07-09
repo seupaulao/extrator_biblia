@@ -1,6 +1,7 @@
 // const fs = require('fs/promises');
-const texto = require('./texto.json');
 const versos = require('./versos.json');
+const fs = require('fs');
+const texto = require('./dist/texto.json');
 
 //console.log(versos[0].verso, versos.length);
 //console.log(texto[0].original, texto[0].transliteracao);
@@ -139,4 +140,10 @@ print('John 1:1', true);
 console.log('');
 print('Revelation 1:1', true);
 
- 
+fs.unlink('./dist/texto.json', (err) => {
+   if (err) {
+     console.error(err);
+   } else {
+     console.log('File is deleted.');
+   }
+ }); 
