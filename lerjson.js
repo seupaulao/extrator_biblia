@@ -1,6 +1,10 @@
 // const fs = require('fs/promises');
 const versos = require('./versos.json');
 const fs = require('fs');
+const util = require('./util')
+
+// util.descomprimir('./texto.zip')
+
 const texto = require('./dist/texto.json');
 
 //console.log(versos[0].verso, versos.length);
@@ -98,7 +102,10 @@ function getBSBFromGrk(ve) {
    return novo;
 }
 
-function printVetor(ve) {
+function printVetor(ve, nt) {
+   let fraseOriginal = [];
+   let fraseTransliteracao = [];
+   let saida = [];
    for (let i=0; i<=ve.length-1; i++) {
       const j =  ve[i];
       let original = '';
@@ -108,8 +115,17 @@ function printVetor(ve) {
          } else {
                original = texto[j].original;
          }
-         console.log(original, " == ", texto[posicao].transliteracao, " :: ", texto[posicao].traducao);
+         saida.push(original + " == " + texto[posicao].transliteracao + " :: " + texto[posicao].traducao);
+         fraseOriginal.push(original);
+         fraseTransliteracao.push(texto[posicao].transliteracao);
    }   
+   if (!nt) {
+      console.log( fraseOriginal.reverse().join(' ') );
+   } else {
+      console.log( fraseOriginal.join(' ') );
+   }
+   console.log( fraseTransliteracao.join(' ') );
+   console.log(saida);
 }
 
 
@@ -119,31 +135,33 @@ function print(chave, nt) {
       const he = getHebFromBSB(ve);
       const nve = getBSBFromHeb(he);
       // console.log(nve);
-      printVetor(nve);
+      printVetor(nve, false);
    } else {
       // console.log(ve);
       const gr = getGrkFromBSB(ve);
       // console.log(gr);
       const nve = getBSBFromGrk(gr,nt);
       // console.log(nve);
-      printVetor(nve);
+      printVetor(nve, true);
    }
 }
 
 print('Genesis 1:1', false);
 console.log('');
-print('Exodus 20:2', false);
-console.log('');
+// print('Exodus 20:2', false);
+// console.log('');
 print('Exodus 20:8', false);
-console.log('');
-print('John 1:1', true);
+// console.log('');
+// print('John 1:1', true);
 console.log('');
 print('Revelation 1:1', true);
 
-fs.unlink('./dist/texto.json', (err) => {
-   if (err) {
-     console.error(err);
-   } else {
-     console.log('File is deleted.');
-   }
- }); 
+// util.apagarArquivo('texto.json')
+
+// fs.unlink('./dist/texto.json', (err) => {
+//    if (err) {
+//      console.error(err);
+//    } else {
+//      console.log('File is deleted.');
+//    }
+//  }); 

@@ -1,5 +1,6 @@
 const csv = require('csv-parser');
 const fs = require('fs');
+const util = require('./util')
 // const resultado = [];
 
 //Heb$Grk$BSB$Language$Vs$WLCTR$Eq$Translit$Verse$Heading$BSBVTrad
@@ -23,6 +24,7 @@ let vetbsb = []
 
 // em verso colocar a forma resumida do verso => GEN 1:1, REV 2:1, etc
 
+util.descomprimir('./bsb_tables.zip')
 
 fs.createReadStream('bsb_tables.csv')
 .pipe(csv({ separator: '$'}))
@@ -64,4 +66,5 @@ fs.createReadStream('bsb_tables.csv')
    //fs.writeFileSync('./outras_traducoes.json', JSON.stringify(outras, null, '  '));
 });
 
+util.apagarArquivo('bsb_tables.csv')
 
