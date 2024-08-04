@@ -1,8 +1,6 @@
 const util = require('./util')
 
-const texto = require('./dist/texto.json');
-
-// util.descomprimir('texto.zip');
+const texto = require('./texto.json');
 
 function printVetor (ve, nt) {
    let fraseOriginal = [];
@@ -37,23 +35,9 @@ function printVetor (ve, nt) {
       printVetor(nve, false);
  }
 
-print('Genesis 1:1', false);
+print('GEN 1:1', false);
 console.log('');
-print('Exodus 20:8', false);
+print('EXO 20:8', false);
 console.log('');
-print('Revelation 1:1', true);
-
-
-// criar arquivo - transliteracao.txt
-//     formato:   GEN_1_1 texto_ou_translit
-// processar as vpl e colocar no mesmo formato acima
-// idéia: vetor[chave]=valor
-//
-//         TRADUCAO[livro_cap_ver] = texto
-// ORIGINAL_GRK_HEB[livro_cap_ver] = texto
-// TRANSLIT_GRK_HEB[livro_cap_ver] = texto
-//
-// TABELA TRADUCAO
-// palavra original == traducao == classe gramatical
-
+print('REV 1:1', true);
 

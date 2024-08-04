@@ -2,6 +2,93 @@ const fs = require('fs');
 const decompress = require("decompress");
 const versos = require('./versos.json');
 
+const at = [
+  'GEN',
+  'EXO',
+  'LEV',
+  'NUM',
+  'DEU',
+  'JOS',
+  'JDG',
+  'RUT',
+  '1SA',
+  '2SA',
+  '1KI',
+  '2KI',
+  '1CH',
+  '2CH',
+  'EZR',
+  'NEH',
+  'EST',
+  'JOB',
+  'PSA',
+  'PRO',
+  'ECC',
+  'SOL',
+  'ISA',
+  'JER',
+  'LAM',
+  'EZE',
+  'DAN',
+  'HOS',
+  'JOE',
+  'AMO',
+  'OBA',
+  'JON',
+  'MIC',
+  'NAH',
+  'HAB',
+  'ZEP',
+  'HAG',
+  'ZEC',
+  'MAL',
+];
+
+const nt = ['MAT',
+  'MAR',
+  'LUK',
+  'JOH',
+  'ACT',
+  'ROM',
+  '1CO',
+  '2CO',
+  'GAL',
+  'EPH',
+  'PHI',
+  'COL',
+  '1TH',
+  '2TH',
+  '1TI',
+  '2TI',
+  'TIT',
+  'PHM',
+  'HEB',
+  'JAM',
+  '1PE',
+  '2PE',
+  '1JO',
+  '2JO',
+  '3JO',
+  'JUD',
+  'REV'];
+
+exports.isAT = (f) => {
+  return at.indexOf(f) >= 0 ;
+}  
+
+exports.isNT = (t) => {
+  return nt.indexOf(t) >= 0 ;
+}  
+
+exports.getTransliteracao = (texto, ve) => {
+   let fraseTransliteracao = [];
+   for (let i=0; i<=ve.length-1; i++) {
+      const j =  ve[i];
+      fraseTransliteracao.push(texto[j].transliteracao);
+   }   
+   return fraseTransliteracao.join(' ');
+}
+
 exports.descomprimir = (arquivo) => {
     decompress(arquivo, "dist")
     .then((files) => {

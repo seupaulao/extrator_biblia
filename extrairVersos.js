@@ -1,7 +1,11 @@
 const versos = require('./versos.json');
+const util = require('./util')
 
-// let a = [];
-// a['coisa'] = 'o q eu quero';
-// console.log(a);
+ const livros = new Set();
+ versos.forEach(item =>livros.add(item.verso.split(' ')[0]));
+ console.log(livros);
 
-versos.forEach(item => console.log(item.verso));
+console.log(util.isAT('GEN'))
+console.log(util.isAT('MAL'))
+console.log(util.isAT('MAT'))
+console.log(util.isNT('MAT'))
