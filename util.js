@@ -194,3 +194,22 @@ exports.getBSBFrom = (fonte, ve, nt) => {
   return novo;
 }
 
+exports.transformTxt2Json = (arquivoFonte, arquivoJson) => {
+  const dtranslit = fs.readFileSync(arquivoFonte, {encoding: 'utf-8', flag: 'r'});
+  let translit = '{';
+
+  dtranslit.split('\n').forEach(item => {
+    let posicao1 = item.indexOf(' ');
+    let posicao2 = posicao1 + item.substring(posicao1 + 1).indexOf(' ') + 1;
+    const chave = item.substring(0,3) + '_' + item.substring(posicao1 + 1, posicao2).replace(':','_');
+    let valor = item.substring(posicao2+1);
+    translit += '"' + chave + '": "' + valor + '",\n'
+      //console.log(item.substring(0,3),'_', item.substring(posicao1 + 1, posicao2),'_',item.substring(posicao2+1).split('').reverse().join(''));
+  });
+  translit = translit.substring(0, translit.length-2) + '}';
+  //console.log(translit);
+  fs.writeFile(arquivoJson, translit, 'utf8', (err) => {
+       if (err) throw err;
+  }); 
+}
+
