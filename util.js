@@ -110,7 +110,7 @@ exports.apagarArquivo = (arquivo) => {
       }); 
 }
 
-const INICIO_NT = 305498;
+const INICIO_NT = 305497;
 
 exports.getBSBS = (chave) => {
    for (let i=0;i<=versos.length-1;i++) {
@@ -118,14 +118,6 @@ exports.getBSBS = (chave) => {
          return versos[i].bsbs;
       }
    }
-}
-
-function sequencial (arr, chave, nt) {
-   inicio = nt ? INICIO_NT : 0;
-   for(i = inicio; i < arr.length ; i++) {
-      if (arr[i].BSB == chave) return i;
-   }
-   return -1;
 }
 
 exports.buscabinariaheb = (chave, arr, low, high) => {
@@ -141,15 +133,27 @@ exports.buscabinariaheb = (chave, arr, low, high) => {
 
 
 function sequencialheb(arr, chave) {
-  for(i = 0; i < arr.length ; i++) {
+  for(i = 0; i <= INICIO_NT ; i++) {
      if (arr[i].HEB == chave) return i;
   }
   return -1;
 }
 
 function sequencialgrk(arr, chave) {
-  for(i = INICIO_NT; i < arr.length ; i++) {
-     if (arr[i].GRK == chave) return i;
+  console.log(chave);
+  for(i = INICIO_NT-1; i <= arr.length ; i++) {
+     if (arr[i].GRK == chave)  {
+      //console.log(chave, i);
+      return i;
+     }
+  }
+  return -1;
+}
+
+function sequencial (arr, chave, nt) {
+  inicio = nt ? INICIO_NT : 0;
+  for(i = inicio; i < arr.length ; i++) {
+     if (arr[i].BSB == chave) return i;
   }
   return -1;
 }
