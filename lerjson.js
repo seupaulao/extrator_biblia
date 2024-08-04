@@ -29,15 +29,19 @@ function printVetor (ve, nt) {
  }
  
  function print (chave, nt) {
-      const ve = util.getBSBS(chave);
-      const he = util.getLangFromBSB(texto, ve, nt);
-      const nve = util.getBSBFrom(texto, he, nt);
-      printVetor(nve, false);
+     const ve = util.getBSBS(chave);
+     if (ve.length > 1) {
+        const he = util.getLangFromBSB(texto, ve, nt);
+        const nve = util.getBSBFrom(texto, he, nt);
+        printVetor(nve, false);
+     }
  }
 
-print('GEN 1:1', false);
-console.log('');
-print('EXO 20:8', false);
-console.log('');
-print('REV 1:1', true);
+//print('GEN 1:1', false);
+//console.log('');
+//print('MAL 4:6', false);
+//console.log('');
+//print('REV 22:21', true);
+//console.log('');
+print('MAT 1:1', true);
 
