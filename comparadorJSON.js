@@ -38,19 +38,22 @@ function compararGRCBLVNovo() {
     comparador(t5,t4,'blv_novo','grc');
 }
 
+// RESOLVIDO
 // compararTranslitEBLV_Velho(); //apenas 1 registro NEH_7_68 para colocar em translit_velho
+// RESOLVIDO
+// compararTranslitEBLVNovo(); //16 registros para colocar em translit_novo, sem transliteracao
 
- compararHebBLVVelho();   //201 versos tem em heb, mas nao tem em blv
+// RESOLVIDO
+// Os versos abaixo nao existem na versao BLV e nem na King James 1601
+// 3JO_1_15 Εἰρήνη σοι. ἀσπάζονταί σε οἱ φίλοι. ἀσπάζου τοὺς φίλους κατʼ ὄνομα. ‘p /’ ‘/book’ undefined
+// REV_12_18 καὶ ⸀ἐστάθηἐπὶ τὴν ἄμμον τῆς θαλάσσης. undefined
+// Ademais outros 20 versos estão sem transliteração do novo - verificar
+//compararGRCBLVNovo();
+
+
+compararHebBLVVelho();   //201 versos tem em heb, mas nao tem em blv
                           //133 versos tem em blv, mas nao tem em heb
                           //verificar os falsos positivos
                           //a diferenca de versos das 2 versoes eh de : 23213(heb) - 23145(blv_velho) = 68 versos
 
-// compararTranslitEBLVNovo(); //16 registros para colocar em translit_novo, sem transliteracao
 
-// Os versos abaixo nao existem na versao BLV e nem na King James 1601
-// 3JO_1_15 Εἰρήνη σοι. ἀσπάζονταί σε οἱ φίλοι. ἀσπάζου τοὺς φίλους κατʼ ὄνομα. ‘p /’ ‘/book’ undefined
-// REV_12_18 καὶ ⸀ἐστάθηἐπὶ τὴν ἄμμον τῆς θαλάσσης. undefined
-
-// Ademais outros 20 versos estão sem transliteração do novo - verificar
-
-// compararGRCBLVNovo();
