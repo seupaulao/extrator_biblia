@@ -50,7 +50,6 @@ function compararGRCBLVNovo() {
 // Ademais outros 20 versos estão sem transliteração do novo - verificar
 //compararGRCBLVNovo();
 
-
 compararHebBLVVelho();   //201 versos tem em heb, mas nao tem em blv
                           //133 versos tem em blv, mas nao tem em heb
                           //verificar os falsos positivos
