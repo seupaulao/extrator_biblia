@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "csv-parser": "^3.0.0",
-    "decompress": "^4.2.1"
+    "decompress": "^4.2.1",
+    "express": "^4.21.2"
   }
 }
